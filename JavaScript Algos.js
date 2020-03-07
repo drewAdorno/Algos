@@ -652,13 +652,134 @@ kennyDies()
 // What Really Happened?
 // Kyle (smarter than Kenny) notes that the chance of one disaster should be unrelated to the chance of another. Change whatHappensToday() function to create whatReallyHappensToday() . In this new function test for each disaster independently , instead of assuming exactly one disaster will happen. In other words, with this new function, all five might occur today – or none . Maybe Kenny will survive!
 
+function kennyDies()
+{
+ var today= [];
+ var volcano=Math.floor(Math.random() * 10) //a number between 0-9 10% chance to get a 1
+ if(volcano ===1)
+ {
+   today.push('Volcano')
+ }
+ 
+ var tsunami=Math.floor(Math.random() * 100) //15% chance 1-100 if we get any number from 1-15 that 
+ if(tsunami < 15)
+ {
+   today.push('Tsunami')
+ }
+
+ var earthquake=Math.floor(Math.random() * 5)
+ if(earthquake===1)
+ {
+   today.push('EarthQuake')
+ }
+
+ var blizzards=Math.floor(Math.random() * 4)
+ if(blizzards===1)
+ {
+   today.push('Blizzard')
+ }
+
+ var meteors=Math.floor(Math.random() * 10)
+ if(meteors < 3)
+ {
+   today.push('Meteors')
+ }
+  if(!today.length)
+  {
+    return 'Kenny Lives'
+  }
+  return today
+}
 // Soaring IQ
 // Your time at the Dojo will definitely make you smarter! Let’s say a new Dojo student, Bogdan, entered with a modest IQ of 101. Let’s say that during a 14-week bootcamp, his IQ rose by .01 on the first day, then went up by an additional .02 on the second day, then up by .03 more on the third day, etc. all the way until increasing by .98 on his 98 th day (the end of 14 full weeks). What is Bogdan’s final IQ?
+
+function soaringIQ(iq)
+{
+    for(var i=.01; i<.98; i+=.01)
+    {
+        iq+=i
+    }
+    return iq
+}
+// soaringIQ(101);
 
 // Letter Grade
 // Mr. Cerise teaches high school math. Write a function that assigns and prints a letter grade, given an integer representing a score from 0 to 100? Those getting 90+ get an ‘A’, 80-89 earn ‘B’, 70-79 is a ‘C’, 60-69 should get a ‘D’, and lower than 60 receive ‘F’. For example, given 88 , you should log "Score: 88. Grade: B" . Given the score 61 , log the string "Score:
 // 61. Grade: D" .
+// const expr = 'Papayas';
+// switch (expr) {
+//   case 'Oranges':
+//     console.log('Oranges are $0.59 a pound.');
+//     break;
+//   case 'Mangoes':
+//   case 'Papayas':
+//     console.log('Mangoes and papayas are $2.79 a pound.');
+//     // expected output: "Mangoes and papayas are $2.79 a pound."
+//     break;
+//   default:
+//     console.log('Sorry, we are out of ' + expr + '.');
+// }
 
+function letterGrade(score){
+  switch(true){
+    case score>=90:
+      console.log(`Score: ${score}. Grade: A`)
+      break;
+    case score>=80:
+      console.log(`Score: ${score}. Grade: B`)
+      break;
+    case score>=70:
+      console.log(`Score: ${score}. Grade: C`)
+      break;
+    case score>=60:
+      console.log(`Score: ${score}. Grade: D`)
+      break;
+    default:
+      console.log(`Score: ${score}. Grade: F...Fail.`)
+  }
+}
+// letterGrade(55)
+// letterGrade(90)
+// letterGrade(72)
 // More Accurate Grades
 // For an additional challenge, add ‘ - ’ signs to scores in the bottom two percent of A, B, C and D scores, and “ + ” signs to the top two percent of B, C and D scores (sorry, Mr. Cerise never gives an A+). Given 88 , console.log "Score: 88. Grade: B+" . Given 61 , log "Score: 61. Grade: D-" .
+function letterGradeAdvanced(score){
+  switch(true){
+    case score>=90:
+      console.log(`Score: ${score}. Grade: A`)
+      break;
+    case score>=88:
+        console.log(`Score: ${score}. Grade: B+`)
+      break;
+    case score>=83:
+      console.log(`Score: ${score}. Grade: B`)
+      break;
+    case score>=80:
+      console.log(`Score: ${score}. Grade: B-`)
+      break;
+    case score>=78:
+        console.log(`Score: ${score}. Grade: C+`)
+      break;
+    case score>=73:
+      console.log(`Score: ${score}. Grade: C`)
+      break;
+    case score>=70:
+      console.log(`Score: ${score}. Grade: C-`)
+      break;
+    case score>=68:
+        console.log(`Score: ${score}. Grade: D+`)
+      break;
+    case score>=63:
+      console.log(`Score: ${score}. Grade: D`)
+      break;
+    case score>=60:
+      console.log(`Score: ${score}. Grade: D-`)
+      break;
+    default:
+      console.log(`Score: ${score}. Grade: F...Fail.`)
+  }
+}
+letterGradeAdvanced(88)
+letterGradeAdvanced(72)
+letterGradeAdvanced(65)
 
